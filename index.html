@@ -34,66 +34,11 @@
 </head>
 <body>
 
-  <!-- Header Navigation Section -->
-  <header class="site-header" id="SITE_HEADER">
-    <div class="header-container">
-      <a href="index.html" class="brand-title" id="BRAND_TITLE">SFFMEER</a>
-      <div class="social-bar" id="SOCIAL_BAR">
-        <a href="https://www.plurk.com/sffmeer" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Plurk Social Link" id="PLURK_LINK">
-          <!-- Elegant white and orange Plurk SVG matching the Wix original exactly -->
-          <svg class="social-icon-svg" data-bbox="0 0 200 200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <g>
-              <path fill="#ffffff" d="M200 10v180c0 5.523-4.477 10-10 10H10c-5.523 0-10-4.477-10-10V10C0 4.477 4.477 0 10 0h180c5.523 0 10 4.477 10 10" />
-              <path fill="#ff6154" d="M181.901 100c0 45.233-36.668 81.901-81.901 81.901S18.099 145.233 18.099 100 54.767 18.099 100 18.099 181.901 54.767 181.901 100" />
-              <path d="M110.92 59.05H71.335v81.901h16.38v-24.57h23.205c15.831 0 28.665-12.834 28.665-28.665s-12.834-28.665-28.665-28.665Zm0 40.95H87.715V75.43h23.205c6.785 0 12.285 5.5 12.285 12.285S117.705 100 110.92 100" fill="#ffffff" />
-            </g>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </header>
+  <!-- React Root Container -->
+  <div id="root"></div>
 
-  <!-- Main Showcase Content -->
-  <main class="main-content" id="MAIN_CONTENT">
-    <div class="landing-grid">
-      <!-- Left side: Animated Clock GIF -->
-      <div class="clock-column">
-        <div class="clock-wrapper">
-          <img src="assets/coming-soon-clock.gif" alt="Coming Soon Clock" class="clock-image" id="CLOCK_IMAGE" loading="lazy">
-        </div>
-      </div>
-      
-      <!-- Right side: Text details -->
-      <div class="details-column" id="DETAILS_COLUMN">
-        <h1 class="main-title" id="MAIN_TITLE">DAS MAL DIE</h1>
-        <p class="subtitle" id="SUBTITLE">Coming Soon</p>
-        <p class="release-date" id="RELEASE_DATE">2026.08</p>
-        
-        <h2 class="chinese-title" id="CHINESE_TITLE">宙 與 律</h2>
-        
-        <div class="tagline-container" id="TAGLINE_CONTAINER">
-          <p class="tagline" id="TAGLINE_1">天才牌手與機率之神的雙人舞。</p>
-          <p class="tagline" id="TAGLINE_2">悲劇的終焉，只有命運的共犯。</p>
-        </div>
-        
-        <div class="hashtag-container" id="HASHTAG_CONTAINER">
-          <div class="hashtag-row" id="HASHTAG_ROW_1">
-            <span class="hashtag">#原創BL漫畫</span>
-          </div>
-          <div class="hashtag-row" id="HASHTAG_ROW_2">
-            <span class="hashtag">#德州撲克</span>
-            <span class="hashtag">#結構悲劇</span>
-            <span class="hashtag">#毀滅性浪漫</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </main>
-
-  <!-- Footer Section -->
-  <footer class="site-footer" id="SITE_FOOTER">
-    <p class="copyright" id="COPYRIGHT_NOTICE">&copy; 2026 SFF. All rights reserved.</p>
-  </footer>
+  <!-- React Entry Point Module Script -->
+  <script type="module" src="/src/main.jsx"></script>
 
 </body>
 </html>

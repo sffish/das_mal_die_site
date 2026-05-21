@@ -115,6 +115,54 @@ body {
   text-shadow: 0 0 10px rgba(255, 97, 84, 0.3);
 }
 
+/* Navigation Menu Styles */
+.main-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 2.2rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-family: var(--font-title);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: var(--transition-smooth);
+  position: relative;
+  padding: 0.4rem 0;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--text-color);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--accent-color);
+  transition: var(--transition-smooth);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
 .social-bar {
   display: flex;
   align-items: center;
@@ -191,10 +239,11 @@ body {
   display: block;
   object-fit: cover;
   transition: transform 0.8s ease;
+  transform: scale(2); /* Doubles the visual size (radius x2) of the clock itself */
 }
 
 .clock-wrapper:hover .clock-image {
-  transform: scale(1.03);
+  transform: scale(2.06); /* Maintain hover zoom animation proportionally */
 }
 
 /* Right Column: Details Container */
@@ -349,6 +398,109 @@ body {
   }
 }
 
+/* Page Sections Under Showcase */
+.sections-container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 4rem 2rem 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.page-section {
+  width: 100%;
+  scroll-margin-top: 100px;
+}
+
+.section-card {
+  background: rgba(10, 10, 10, 0.4);
+  border: 1px solid #151515;
+  border-radius: 12px;
+  padding: 4rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: var(--transition-smooth);
+}
+
+.section-card:hover {
+  border-color: #252525;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9), 0 0 30px rgba(255, 97, 84, 0.02);
+  transform: translateY(-4px);
+}
+
+.section-header {
+  margin-bottom: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.section-header::after {
+  content: '';
+  flex-grow: 1;
+  height: 1px;
+  background: linear-gradient(to right, #222222, transparent);
+}
+
+.section-tag {
+  font-family: var(--font-title);
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: var(--accent-color);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.section-title {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--text-color);
+  text-transform: uppercase;
+}
+
+.section-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.content-block {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.content-block-subtitle {
+  font-family: var(--font-title);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  border-left: 2px solid var(--accent-color);
+  padding-left: 0.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.section-paragraph {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  white-space: pre-wrap;
+}
+
+.highlight-bracket {
+  color: var(--accent-color);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
 /* Mobile View */
 @media (max-width: 800px) {
   .site-header {
@@ -359,6 +511,19 @@ body {
     flex-direction: column;
     gap: 1.5rem;
     text-align: center;
+  }
+  
+  .nav-list {
+    gap: 0.8rem 1.4rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0 0.5rem;
+  }
+  
+  .nav-link {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    padding: 0.2rem 0;
   }
   
   .brand-title {
@@ -434,7 +599,104 @@ body {
     transform: translateY(-2px);
   }
   
+  .sections-container {
+    gap: 4.5rem;
+    padding: 2rem 1rem 6rem;
+  }
+  
+  .section-card {
+    padding: 2.5rem 1.5rem;
+    background: rgba(10, 10, 10, 0.6);
+  }
+  
+  .section-header {
+    margin-bottom: 2rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .section-header::after {
+    display: none;
+  }
+  
+  .section-title {
+    font-size: 1.4rem;
+  }
+  
+  .section-paragraph {
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
   .site-footer {
     padding: 2rem 1.5rem;
   }
 }
+
+/* Tagline Container Markdown Styling */
+.tagline-container .section-paragraph {
+  font-size: 1.15rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #dddddd;
+  margin-bottom: 0.6rem;
+  line-height: 1.8;
+}
+.tagline-container .section-paragraph:last-child {
+  margin-bottom: 0;
+}
+
+/* Markdown Content Styling */
+.markdown-link {
+  color: var(--accent-color);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(255, 97, 84, 0.4);
+  transition: var(--transition-smooth);
+}
+
+.markdown-link:hover {
+  color: var(--accent-hover);
+  border-bottom-style: solid;
+  text-shadow: 0 0 8px rgba(255, 97, 84, 0.3);
+}
+
+.markdown-ul, .markdown-ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.markdown-li {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.markdown-h1, .markdown-h2, .markdown-h3 {
+  font-family: var(--font-title);
+  color: var(--text-color);
+  margin-top: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.markdown-h1 {
+  font-size: 1.6rem;
+  border-bottom: 1px solid #222222;
+  padding-bottom: 0.5rem;
+}
+
+.markdown-h2 {
+  font-size: 1.35rem;
+}
+
+.markdown-h3 {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
