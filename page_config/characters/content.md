@@ -1,3 +1,4 @@
+![律](/images/lyu_profile.png#width=300px)
 【律】
 
 天才牌手。擅長詐唬、挑釁，和讓所有人誤判他。
