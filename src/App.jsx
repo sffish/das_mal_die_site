@@ -41,6 +41,38 @@ const MarkdownContent = ({ content }) => {
     h1: ({ children }) => <h1 className="markdown-h1">{formatChildren(children)}</h1>,
     h2: ({ children }) => <h2 className="markdown-h2">{formatChildren(children)}</h2>,
     h3: ({ children }) => <h3 className="markdown-h3">{formatChildren(children)}</h3>,
+    img: ({ src, alt }) => {
+      if (!src) return null
+      
+      const [cleanSrc, hash] = src.split('#')
+      const styles = {
+        maxWidth: '100%',
+        height: 'auto',
+        borderRadius: '8px',
+        display: 'block',
+        margin: '2rem 0',
+        boxShadow: '0 8px 24px rgba(0, 0, 0, 0.4), 0 0 1px rgba(255, 255, 255, 0.1)',
+      }
+
+      if (hash) {
+        // Support parameters like #width=300px or #width=50%
+        const params = new URLSearchParams(hash)
+        const width = params.get('width')
+        const height = params.get('height')
+
+        if (width) styles.width = width
+        if (height) styles.height = height
+
+        // Support shorthand like #300 (becomes 300px) or #50%
+        if (!width && !height) {
+          if (hash.endsWith('%') || hash.endsWith('px') || /^\d+$/.test(hash)) {
+            styles.width = hash.endsWith('%') || hash.endsWith('px') ? hash : `${hash}px`
+          }
+        }
+      }
+
+      return <img src={cleanSrc} alt={alt} style={styles} />
+    },
   }
 
   return <ReactMarkdown components={components}>{content}</ReactMarkdown>
