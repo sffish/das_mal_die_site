@@ -1,0 +1,440 @@
+/* style.css - Premium Marketing Page for DAS MAL DIE */
+
+/* Import Google Fonts - Montserrat for elegant headers, Noto Sans TC for gorgeous Traditional Chinese */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+
+/* Modern CSS Reset & Variables */
+:root {
+  --bg-color: #000000;
+  --text-color: #ffffff;
+  --text-muted: #a6a6a6;
+  --text-dim: #666666;
+  
+  /* Coral/Plurk brand color for elegant accents */
+  --accent-color: #ff6154;
+  --accent-hover: #ff857a;
+  
+  --font-title: 'Montserrat', 'Noto Sans TC', sans-serif;
+  --font-body: 'Noto Sans TC', 'Montserrat', sans-serif;
+  
+  --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  --max-width: 1200px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Header Styles */
+.site-header {
+  width: 100%;
+  padding: 2.5rem 2rem;
+  z-index: 100;
+  animation: fadeIn 1s ease-out;
+}
+
+.header-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-title {
+  font-family: var(--font-title);
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-color);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.brand-title:hover {
+  color: var(--accent-color);
+  letter-spacing: 0.35em;
+  text-shadow: 0 0 10px rgba(255, 97, 84, 0.3);
+}
+
+.social-bar {
+  display: flex;
+  align-items: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+}
+
+.social-icon-svg {
+  width: 28px;
+  height: 28px;
+  fill: var(--text-color);
+  transition: var(--transition-smooth);
+}
+
+.social-link:hover .social-icon-svg {
+  fill: var(--accent-color);
+  transform: scale(1.1) rotate(3deg);
+  filter: drop-shadow(0 0 8px rgba(255, 97, 84, 0.5));
+}
+
+/* Main Layout Styles */
+.main-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.landing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 5rem;
+  width: 100%;
+  align-items: center;
+}
+
+/* Left Column: Clock Image Container */
+.clock-column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  animation: fadeInUp 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.2s;
+}
+
+.clock-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 1px rgba(255, 255, 255, 0.1);
+  transition: var(--transition-smooth);
+}
+
+.clock-wrapper:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.clock-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.clock-wrapper:hover .clock-image {
+  transform: scale(1.03);
+}
+
+/* Right Column: Details Container */
+.details-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  opacity: 0;
+  animation: fadeInUp 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: 0.4s;
+}
+
+.main-title {
+  font-family: var(--font-title);
+  font-weight: 500;
+  font-size: 3.5rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  line-height: 1.2;
+  margin-bottom: 0.8rem;
+  color: var(--text-color);
+  word-spacing: 0.1em;
+}
+
+.subtitle {
+  font-family: var(--font-title);
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.3rem;
+}
+
+.release-date {
+  font-family: var(--font-title);
+  font-weight: 300;
+  font-size: 1.3rem;
+  letter-spacing: 0.18em;
+  color: var(--accent-color);
+  margin-bottom: 3.5rem;
+  border-bottom: 1px solid rgba(255, 97, 84, 0.2);
+  padding-bottom: 0.5rem;
+  width: 100%;
+  max-width: 250px;
+}
+
+.chinese-title {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  padding-left: 0.2em; /* Centers the letter-spaced text better */
+  width: 100%;
+}
+
+.tagline-container {
+  margin-bottom: 2.5rem;
+  border-left: 2px solid #333333;
+  padding-left: 1.2rem;
+  transition: var(--transition-smooth);
+}
+
+.tagline-container:hover {
+  border-left-color: var(--accent-color);
+}
+
+.tagline {
+  font-size: 1.15rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  color: #dddddd;
+  margin-bottom: 0.6rem;
+  line-height: 1.8;
+}
+
+.tagline:last-child {
+  margin-bottom: 0;
+}
+
+.hashtag-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.hashtag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.2rem;
+}
+
+.hashtag {
+  font-size: 0.95rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  transition: var(--transition-smooth);
+  padding: 0.2rem 0;
+}
+
+.hashtag:hover {
+  color: var(--accent-color);
+  transform: translateX(3px);
+}
+
+/* Footer Styles */
+.site-footer {
+  width: 100%;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border-top: 1px solid #111111;
+  animation: fadeIn 1.5s ease-out;
+}
+
+.copyright {
+  font-family: var(--font-title);
+  font-weight: 300;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* Media Queries for Responsiveness */
+
+/* Tablet View */
+@media (max-width: 992px) {
+  :root {
+    --max-width: 768px;
+  }
+  
+  .landing-grid {
+    gap: 3rem;
+  }
+  
+  .main-title {
+    font-size: 2.8rem;
+  }
+  
+  .chinese-title {
+    font-size: 1.8rem;
+  }
+  
+  .release-date {
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 800px) {
+  .site-header {
+    padding: 2rem 1.5rem 1rem;
+  }
+  
+  .header-container {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+  }
+  
+  .brand-title {
+    letter-spacing: 0.25em;
+  }
+  
+  .main-content {
+    padding: 1.5rem;
+  }
+  
+  .landing-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    text-align: center;
+  }
+  
+  .clock-column {
+    order: 1; /* Keep the GIF at the top on mobile */
+  }
+  
+  .details-column {
+    order: 2;
+    align-items: center;
+  }
+  
+  .main-title {
+    font-size: 2.2rem;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.5rem;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 0.2em;
+  }
+  
+  .release-date {
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+  
+  .chinese-title {
+    font-size: 1.6rem;
+    letter-spacing: 0.3em;
+    margin-bottom: 1.2rem;
+    padding-left: 0;
+  }
+  
+  .tagline-container {
+    border-left: none;
+    border-top: 1px solid #222;
+    border-bottom: 1px solid #222;
+    padding: 1rem 0;
+    width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .tagline {
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+  }
+  
+  .hashtag-container {
+    align-items: center;
+  }
+  
+  .hashtag-row {
+    justify-content: center;
+    gap: 0.8rem 1rem;
+  }
+  
+  .hashtag:hover {
+    transform: translateY(-2px);
+  }
+  
+  .site-footer {
+    padding: 2rem 1.5rem;
+  }
+}
