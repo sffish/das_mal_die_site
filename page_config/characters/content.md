@@ -6,6 +6,7 @@
 這是一場沒有人能全身而退的零和賽局。
 
 
+![律](/images/zeus_profile.png#width=300px)
 【宙】
 
 混沌需要收束。
